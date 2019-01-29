@@ -1,0 +1,11 @@
+.container {
+	display: flex
+}
+.settings-container {
+	flex: 2 1 auto;
+	border-left: solid;
+	padding-left: 8px;
+}
+.screen-container {
+	flex: 6 1 auto;
+}

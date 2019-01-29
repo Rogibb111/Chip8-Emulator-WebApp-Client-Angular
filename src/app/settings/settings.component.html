@@ -1,0 +1,43 @@
+<div class='settings-container'>
+	<h1>Settings</h1>
+	<form [formGroup]="gameForm" (ngSubmit)="onLaunch()">
+		<mat-form-field>
+			<mat-select placeholder="Pick A Game" formControlName="game">
+				<mat-option *ngFor="let gameData of gameList" [value]="gameData.fileName">
+					{{ gameData.name }}
+				</mat-option> 
+			</mat-select>
+			<mat-error *ngIf="gameForm.get('game').invalid">{{getErrorMessage()}}</mat-error>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-select placeholder="Pick A Clock Frequency" [(value)]="frequency" formControlName="frequency">
+				<mat-option value="100">100 Hz</mat-option>
+				<mat-option value="200">200 Hz</mat-option>
+				<mat-option value="300">300 Hz</mat-option>
+				<mat-option value="400">400 Hz</mat-option>
+				<mat-option value="500">500 Hz</mat-option>
+			</mat-select>
+			<mat-error *ngIf="gameForm.get('frequency').invalid">{{getErrorMessage('frequency')}}</mat-error>
+		</mat-form-field>
+		<div class="game-controls">
+			<button
+			 mat-raised-button
+			 type="submit"
+			 color="primary" 
+			 class="launch-button" 
+			 [attr.disabled]="settingsService.id ? '' : null">Launch</button>
+			<button 
+			 mat-raised-button 
+			 color="primary" 
+			 class="launch-button" 
+			 (click)="onPausedButtonClicked()"
+			 [attr.disabled]="!settingsService.id ? '' : null">Pause</button>
+			<button
+			 mat-raised-button 
+			 color="primary" 
+			 class="launch-button" 
+			 (click)="onStopButtonClicked()"
+			 [attr.disabled]="!settingsService.id ? '' : null">Stop</button>
+		</div>
+	</form>
+</div>
