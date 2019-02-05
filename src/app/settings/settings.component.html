@@ -25,19 +25,21 @@
 			 type="submit"
 			 color="primary" 
 			 class="launch-button" 
-			 [attr.disabled]="settingsService.id ? '' : null">Launch</button>
+			 [disabled]="settingsService.id ? true : null">Launch</button>
 			<button 
 			 mat-raised-button 
+			 type="button"
 			 color="primary" 
 			 class="launch-button" 
 			 (click)="onPausedButtonClicked()"
-			 [attr.disabled]="!settingsService.id ? '' : null">Pause</button>
+			 [disabled]="settingsService.id ? null : true">Pause</button>
 			<button
+			 type="button"
 			 mat-raised-button 
 			 color="primary" 
 			 class="launch-button" 
 			 (click)="onStopButtonClicked()"
-			 [attr.disabled]="!settingsService.id ? '' : null">Stop</button>
+			 [disabled]="settingsService.id ? null : true">Stop</button>
 		</div>
 	</form>
 </div>

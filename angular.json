@@ -29,6 +29,7 @@
           },
           "configurations": {
             "production": {
+            	"outputPath": "../Chip8/src/main/resources/static",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

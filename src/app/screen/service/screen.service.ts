@@ -21,7 +21,9 @@ export class ScreenService {
     }); 
   }
   
-  socketCallback({ data }) {
+  socketCallback = ({ data: jsonData }) => {
+    const data = JSON.parse(jsonData);
+    this.screen = [];
     for(let y = 0; y < data.length; y += 1) {
       for(let x = 0; x < data[y].length; x += 1) {
         this.screen.push(new Pixel(x, y, data[y][x]));
@@ -34,6 +36,7 @@ export class ScreenService {
   }
   
   stopService() {
+    this.screen = [];
     this.webSocket.close();
     this.webSocket = null;
   }

@@ -1,4 +1,4 @@
 <h1>Chip 8 Emulator</h1>
 <svg background="black" width="99%" viewBox="0 0 64 32">
-	<rect *ngFor="let pixel of screenService.screen" height="1" width="1" color="white" />
+	<rect *ngFor="let pixel of screenService.screen" height="1" width="1" [attr.fill]="pixel.value ? 'white' : 'black'" [attr.x]="pixel.x" [attr.y]="pixel.y"/>
 </svg>

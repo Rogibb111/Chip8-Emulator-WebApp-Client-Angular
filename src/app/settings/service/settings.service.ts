@@ -37,7 +37,10 @@ export class SettingsService {
   }
 
   stopGame (): void {
-    this.http.post(this.stopUrl, this.id, httpOptions);
-    this.screenService.stopService();
+    this.http.post(this.stopUrl, this.id, httpOptions).subscribe(() => {
+      this.id = null;
+      this.screenService.stopService();
+    });
+
   }
 }
