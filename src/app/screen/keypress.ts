@@ -1,9 +1,12 @@
 export class KeyPress {
-  key: number;
+  keyboard: number[];
   timeStamp: Date;
+  type: String = 'keyPress';
+  id: String;
 
-  constructor(key) {
-    this.key = key;
+  constructor(keyboard: number[], id: String) {
+    this.keyboard = keyboard;
     this.timeStamp = new Date();
+    this.id = id;
   } 
 }

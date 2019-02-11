@@ -24,7 +24,6 @@ export class SettingsService {
   
   constructor(private http: HttpClient, private screenService: ScreenService) { }
   
-  
   getGames (): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesUrl);
   }

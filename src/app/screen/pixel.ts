@@ -7,5 +7,9 @@ export class Pixel {
     this.x = x;
     this.y = y;
     this.value = value;
-  } 
+  }
+  
+  getValue() {
+    return this.value;
+  }
 }

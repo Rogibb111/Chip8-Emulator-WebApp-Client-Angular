@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ScreenService } from './service/screen.service';
 
 @Component({
@@ -15,5 +15,14 @@ export class ScreenComponent implements OnInit {
   
   ngOnInit() {
   }
-
+  
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    this.screenService.pressKey(event.keyCode);
+  }
+  
+  @HostListener('document:keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent) {
+    this.screenService.unpressKey(event.keyCode);
+  }
 }
